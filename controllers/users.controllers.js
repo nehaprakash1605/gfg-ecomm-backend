@@ -81,7 +81,7 @@ let login = async(req,res)=>{
     let isValidUser = await userData.comparePassword(password)
     if(!isValidUser) return res.status(500).send({result:false, message:"Credentials Invalid"})
     let token = await userData.createToken()
-    return res.status(200).cookie("Token",token).send({result:false, message:"Login Successful"})
+    return res.status(200).cookie("Token",token).send({result:true, message:"Login Successful"})
 
 }
 
